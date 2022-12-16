@@ -1,10 +1,10 @@
 import { FilterParams } from 'pip-services3-commons-nodex';
 import { PagingParams } from 'pip-services3-commons-nodex';
 import { DataPage } from 'pip-services3-commons-nodex';
-import { CommandableHttpClient } from 'pip-services3-rpc-nodex';
+import { CommandableLambdaClient } from 'pip-services3-aws-nodex';
 import { AnnouncementV1 } from './AnnouncementV1';
 import { IAnnouncementsClientV1 } from './IAnnouncementsClientV1';
-export declare class AnnouncementsHttpClientV1 extends CommandableHttpClient implements IAnnouncementsClientV1 {
+export declare class AnnouncementsCommandableLambdaClientV1 extends CommandableLambdaClient implements IAnnouncementsClientV1 {
     constructor(config?: any);
     getAnnouncements(correlationId: string, filter: FilterParams, paging: PagingParams): Promise<DataPage<AnnouncementV1>>;
     getRandomAnnouncement(correlationId: string, filter: FilterParams): Promise<AnnouncementV1>;

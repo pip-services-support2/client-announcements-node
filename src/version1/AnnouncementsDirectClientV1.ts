@@ -22,12 +22,12 @@ export class AnnouncementsDirectClientV1 extends DirectClient<any> implements IA
         let timing = this.instrument(correlationId, 'announcements.get_announcements');
 
         try {
-            return await this._controller.getAnnouncements(correlationId, filter, paging);
+            let res = await this._controller.getAnnouncements(correlationId, filter, paging);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
         
     }
@@ -36,12 +36,12 @@ export class AnnouncementsDirectClientV1 extends DirectClient<any> implements IA
         let timing = this.instrument(correlationId, 'announcements.get_random_announcement');
 
         try {
-            return await this._controller.getRandomAnnouncement(correlationId, filter);
+            let res = await this._controller.getRandomAnnouncement(correlationId, filter);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -49,12 +49,12 @@ export class AnnouncementsDirectClientV1 extends DirectClient<any> implements IA
         let timing = this.instrument(correlationId, 'announcements.get_announcement_by_id');
         
         try {
-            return await this._controller.getAnnouncementById(correlationId, announcementId);
+            let res = await this._controller.getAnnouncementById(correlationId, announcementId);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -62,12 +62,12 @@ export class AnnouncementsDirectClientV1 extends DirectClient<any> implements IA
         let timing = this.instrument(correlationId, 'announcements.create_announcement');
         
         try {
-            return await this._controller.createAnnouncement(correlationId, announcement);
+            let res = await this._controller.createAnnouncement(correlationId, announcement);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -75,12 +75,12 @@ export class AnnouncementsDirectClientV1 extends DirectClient<any> implements IA
         let timing = this.instrument(correlationId, 'announcements.update_announcement');
 
         try {
-            return await this._controller.updateAnnouncement(correlationId, announcement);
+            let res = await this._controller.updateAnnouncement(correlationId, announcement);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -88,12 +88,12 @@ export class AnnouncementsDirectClientV1 extends DirectClient<any> implements IA
         let timing = this.instrument(correlationId, 'announcements.delete_announcement_by_id');
         
         try {
-            return await this._controller.deleteAnnouncementById(correlationId, announcementId);
+            let res = await this._controller.deleteAnnouncementById(correlationId, announcementId);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 

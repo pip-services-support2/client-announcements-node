@@ -24,14 +24,13 @@ class AnnouncementsDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'announcements.get_announcements');
             try {
-                return yield this._controller.getAnnouncements(correlationId, filter, paging);
+                let res = yield this._controller.getAnnouncements(correlationId, filter, paging);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -39,14 +38,13 @@ class AnnouncementsDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'announcements.get_random_announcement');
             try {
-                return yield this._controller.getRandomAnnouncement(correlationId, filter);
+                let res = yield this._controller.getRandomAnnouncement(correlationId, filter);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -54,14 +52,13 @@ class AnnouncementsDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'announcements.get_announcement_by_id');
             try {
-                return yield this._controller.getAnnouncementById(correlationId, announcementId);
+                let res = yield this._controller.getAnnouncementById(correlationId, announcementId);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -69,14 +66,13 @@ class AnnouncementsDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'announcements.create_announcement');
             try {
-                return yield this._controller.createAnnouncement(correlationId, announcement);
+                let res = yield this._controller.createAnnouncement(correlationId, announcement);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -84,14 +80,13 @@ class AnnouncementsDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'announcements.update_announcement');
             try {
-                return yield this._controller.updateAnnouncement(correlationId, announcement);
+                let res = yield this._controller.updateAnnouncement(correlationId, announcement);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -99,14 +94,13 @@ class AnnouncementsDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'announcements.delete_announcement_by_id');
             try {
-                return yield this._controller.deleteAnnouncementById(correlationId, announcementId);
+                let res = yield this._controller.deleteAnnouncementById(correlationId, announcementId);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }

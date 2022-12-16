@@ -5,8 +5,8 @@ import { ConsoleLogger } from 'pip-services3-components-nodex';
 
 import { AnnouncementsMemoryPersistence } from 'service-announcements-node';
 import { AnnouncementsController } from 'service-announcements-node';
-import { AnnouncementsHttpServiceV1 } from 'service-announcements-node';
-import { AnnouncementsHttpClientV1 } from '../../src/version1/AnnouncementsHttpClientV1';
+import { AnnouncementsCommandableHttpServiceV1 } from 'service-announcements-node';
+import { AnnouncementsCommandableHttpClientV1 } from '../../src/version1/AnnouncementsCommandableHttpClientV1';
 import { AnnouncementsClientFixtureV1 } from './AnnouncementsClientFixtureV1';
 
 var httpConfig = ConfigParams.fromTuples(
@@ -15,9 +15,9 @@ var httpConfig = ConfigParams.fromTuples(
     "connection.port", 3000
 );
 
-suite('AnnouncementsHttpClientV1', ()=> {
-    let service: AnnouncementsHttpServiceV1;
-    let client: AnnouncementsHttpClientV1;
+suite('AnnouncementsCommandableHttpClientV1', ()=> {
+    let service: AnnouncementsCommandableHttpServiceV1;
+    let client: AnnouncementsCommandableHttpClientV1;
     let fixture: AnnouncementsClientFixtureV1;
 
     suiteSetup(async () => {
@@ -25,19 +25,19 @@ suite('AnnouncementsHttpClientV1', ()=> {
         let persistence = new AnnouncementsMemoryPersistence();
         let controller = new AnnouncementsController();
 
-        service = new AnnouncementsHttpServiceV1();
+        service = new AnnouncementsCommandableHttpServiceV1();
         service.configure(httpConfig);
 
         let references: References = References.fromTuples(
             new Descriptor('pip-services', 'logger', 'console', 'default', '1.0'), logger,
             new Descriptor('service-announcements', 'persistence', 'memory', 'default', '1.0'), persistence,
             new Descriptor('service-announcements', 'controller', 'default', 'default', '1.0'), controller,
-            new Descriptor('service-announcements', 'service', 'http', 'default', '1.0'), service
+            new Descriptor('service-announcements', 'service', 'commanadable-http', 'default', '1.0'), service
         );
         controller.setReferences(references);
         service.setReferences(references);
 
-        client = new AnnouncementsHttpClientV1();
+        client = new AnnouncementsCommandableHttpClientV1();
         client.setReferences(references);
         client.configure(httpConfig);
 
